@@ -1,11 +1,11 @@
-# 📚 Optimizing Korean Text Generation via GPT-2 Fine-tuning and Decoding Strategy Analysis
-**GPT-2 한국어 파인튜닝과 디코딩 전략 분석을 통한 문장 생성 최적화**
+# Optimizing Korean Text Generation via GPT-2 Fine-tuning and Decoding Strategy Analysis
+### GPT-2 한국어 파인튜닝과 디코딩 전략 분석을 통한 문장 생성 최적화
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)
+![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow.svg)
 ![Transformers](https://img.shields.io/badge/Transformers-Latest-orange.svg)
-
----
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/AD-Styles)
 
 ## 📌 프로젝트 요약 (Project Overview)
 본 프로젝트는 영어 기반의 범용 언어 모델인 **GPT-2**를 활용하여 한국어 도메인(영화 리뷰)에 특화된 텍스트 생성 파이프라인을 구축한 실습 기록입니다. Hugging Face의 Transformers와 Datasets 라이브러리를 통해 데이터 전처리부터 모델 학습까지의 전 과정을 모듈화하여 구현했습니다. 특히 학습 효율을 위해 30,000건의 데이터를 활용한 최적화된 파인튜닝을 수행했으며, 출력 제어 메커니즘인 디코딩 전략을 실습에 적용했습니다.
@@ -85,8 +85,15 @@
 
 ---
 
+## 🛠️ 재현성 및 모델 공유 (Reproducibility & Model Sharing)
+본 프로젝트는 결과물의 공유와 재현성을 중요하게 생각합니다.
+*   **모델 사용 (Model Usage)**: 본 모델은 `main_finetuning.py`를 통해 직접 학습할 수도 있고, 허깅페이스 스페이스에서 바로 테스트 및 불러오기가 가능합니다.
+*   **환경 재현 (Environment)**: `requirements.txt`를 통해 동일한 라이브러리 환경을 구축할 수 있습니다.
+*   **가중치 관리 (Model Weights)**: 대용량 모델 파일(`model.safetensors`)은 리포지토리의 경량화를 위해 허깅페이스 외부 저장소에서 관리하며, 링크를 통해 데모를 시연합니다.
+
+---
+
 ## 💡 회고록 (Retrospective)
   이번 프로젝트를 통해 사전 학습된 모델을 특정 언어와 도메인에 적응시키는 **전이 학습(Transfer Learning)**의 강력함을 실감했습니다. 특히 단순히 학습을 마치는 것이 아니라, 사용자 환경에 맞춰 데이터 규모를 유연하게 조정(Sampling)하고 최적의 학습 효율을 찾아내는 과정이 실무 현장에서 얼마나 중요한지 깨달았습니다.
 
   가장 흥미로웠던 지점은 생성 파라미터 조정에 따른 모델의 '태도 변화'였습니다. temperature 값을 통해 창의성과 일관성 사이의 균형점을 찾는 과정은 모델의 기술적 이해를 넘어 데이터 엔지니어로서의 감각을 기르는 데 큰 도움이 되었습니다. 이번 실습을 기반으로 향후에는 효율적인 학습 기법인 **LoRA(Low-Rank Adaptation)** 등을 추가로 연구하여 대규모 모델 최적화 역량을 확장하고자 합니다.
-
