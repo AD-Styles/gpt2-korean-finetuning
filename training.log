@@ -1,0 +1,69 @@
+2026-04-13 09:05:20,616 - INFO - Process initialization...
+2026-04-13 09:05:22,420 - INFO - Execution Device: CUDA
+2026-04-13 09:05:54,851 - INFO - Process initialization...
+2026-04-13 09:05:56,476 - INFO - Execution Device: CUDA
+2026-04-13 09:05:57,062 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-13 09:05:57,063 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-13 09:05:57,361 - INFO - HTTP Request: GET https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-13 09:05:57,669 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:05:57,977 - INFO - HTTP Request: GET https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:05:58,284 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-13 09:05:58,488 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-13 09:05:58,797 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-13 09:05:59,103 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-13 09:05:59,336 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/vocab.json "HTTP/1.1 200 OK"
+2026-04-13 09:05:59,616 - INFO - HTTP Request: GET https://huggingface.co/gpt2/resolve/main/vocab.json "HTTP/1.1 200 OK"
+2026-04-13 09:06:00,126 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/merges.txt "HTTP/1.1 200 OK"
+2026-04-13 09:06:00,437 - INFO - HTTP Request: GET https://huggingface.co/gpt2/resolve/main/merges.txt "HTTP/1.1 200 OK"
+2026-04-13 09:06:01,119 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-04-13 09:06:01,333 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/special_tokens_map.json "HTTP/1.1 404 Not Found"
+2026-04-13 09:06:01,559 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer.json "HTTP/1.1 200 OK"
+2026-04-13 09:06:01,830 - INFO - HTTP Request: GET https://huggingface.co/gpt2/resolve/main/tokenizer.json "HTTP/1.1 200 OK"
+2026-04-13 09:06:02,481 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-04-13 09:06:02,797 - INFO - Step 1: Loading NSMC dataset from source URLs...
+2026-04-13 09:06:03,519 - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/csv/csv.py "HTTP/1.1 200 OK"
+2026-04-13 09:06:07,492 - INFO - Step 2: Cleaning and filtering data...
+2026-04-13 09:06:08,149 - INFO - Dataset Size - Train: 149,995, Test: 49,997
+2026-04-13 09:06:08,149 - INFO - Step 3: Tokenizing dataset (This may take a moment)...
+2026-04-13 09:07:27,442 - INFO - Process initialization...
+2026-04-13 09:07:29,068 - INFO - Execution Device: CUDA
+2026-04-13 09:07:29,730 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-13 09:07:29,730 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-13 09:07:29,946 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:07:30,159 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-13 09:07:30,443 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-13 09:07:30,751 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-13 09:07:31,059 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-13 09:07:31,391 - INFO - Step 1: Loading NSMC dataset from source URLs...
+2026-04-13 09:07:32,001 - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/csv/csv.py "HTTP/1.1 200 OK"
+2026-04-13 09:07:32,287 - INFO - Step 2: Cleaning and filtering data...
+2026-04-13 09:07:32,294 - INFO - Dataset Size - Train: 149,995, Test: 49,997
+2026-04-13 09:07:32,294 - INFO - Step 3: Tokenizing dataset (This may take a moment)...
+2026-04-13 09:07:44,779 - INFO - Step 4: Initializing model: gpt2
+2026-04-13 09:07:45,089 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-13 09:07:45,393 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-04-13 09:07:45,701 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/xet-read-token/607a30d783dfa663caf39e06633721c8d4cfcd7e "HTTP/1.1 200 OK"
+2026-04-13 09:08:07,513 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:08:07,819 - INFO - HTTP Request: GET https://huggingface.co/gpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:08:10,136 - INFO - Step 5: Starting fine-tuning process...
+2026-04-13 09:37:38,232 - INFO - Process initialization (Optimized Mode)...
+2026-04-13 09:37:39,778 - INFO - Execution Device: CUDA
+2026-04-13 09:37:40,216 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-13 09:37:40,216 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-13 09:37:40,456 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:37:40,663 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-13 09:37:40,869 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-13 09:37:41,101 - INFO - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-04-13 09:37:41,316 - INFO - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-13 09:37:41,546 - INFO - Step 1: Loading NSMC dataset from source URLs...
+2026-04-13 09:37:42,173 - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/csv/csv.py "HTTP/1.1 200 OK"
+2026-04-13 09:37:42,848 - INFO - Step 2: Cleaning and sampling data for speed optimization...
+2026-04-13 09:37:42,948 - INFO - Dataset Size - Train: 30,000, Test: 3,000
+2026-04-13 09:37:42,948 - INFO - Step 3: Tokenizing dataset...
+2026-04-13 09:37:44,978 - INFO - Step 4: Initializing model: gpt2
+2026-04-13 09:37:45,201 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-13 09:37:45,571 - INFO - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-13 09:37:46,684 - INFO - Step 5: Starting fine-tuning process...
+2026-04-13 09:44:25,893 - INFO - Step 6: Saving fine-tuned model to './gpt2-korean-finetuned'
+2026-04-13 09:44:26,607 - INFO - Step 7: Running inference tests...
+2026-04-13 09:44:30,873 - INFO - Process completed successfully.
