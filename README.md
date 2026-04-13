@@ -1,5 +1,4 @@
-# 📚 Optimizing Korean Text Generation via GPT-2 Fine-tuning and Decoding Strategy Analysis
-## GPT-2 한국어 파인튜닝과 디코딩 전략 분석을 통한 문장 생성 최적화
+# 📚 Optimizing Korean Text Generation via GPT-2 Fine-tuning and Decoding Strategy Analysis (GPT-2 한국어 파인튜닝과 디코딩 전략 분석을 통한 문장 생성 최적화)
 
 ## 📌 프로젝트 요약 (Project Overview)
 본 프로젝트는 영어 기반의 범용 언어 모델인 **GPT-2**를 활용하여 한국어 도메인(영화 리뷰)에 특화된 텍스트 생성 파이프라인을 구축한 실습 기록입니다. Hugging Face의 Transformers와 Datasets 라이브러리를 통해 데이터 전처리부터 모델 학습까지의 전 과정을 모듈화하여 구현했습니다. 특히 학습 효율을 위해 30,000건의 데이터를 활용한 최적화된 파인튜닝을 수행했으며, 출력 제어 메커니즘인 디코딩 전략을 실습에 적용했습니다.
