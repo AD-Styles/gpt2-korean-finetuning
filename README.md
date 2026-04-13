@@ -1,5 +1,5 @@
-# KoGPT2 Model Fine-tuning: Optimizing Korean Text Generation and Decoding Strategies
-### 한국어 영화 리뷰 생성에 특화된 KoGPT2 파인튜닝 및 트러블슈팅 사례 연구
+# 🚀 Beyond English GPT-2: Fine-Tuning KoGPT2 for Korean Movie Reviews
+### 영문 GPT-2의 한계를 넘어: KoGPT2 파인튜닝과 토크나이저 무결성 확보 사례 연구
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)
