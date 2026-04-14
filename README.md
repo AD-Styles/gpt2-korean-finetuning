@@ -37,7 +37,7 @@
 
 ## 🛠️ 기술적 구현 및 최적화 (Technical Implementation)
 
-| 분류 | 구현 내용 |
+| 분류 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 구현 내용 |
 | :--- | :--- |
 | **데이터 및 토큰화<br>(Data & Tokenization)** | `datasets` 활용 병렬 처리. `AutoTokenizer` 대신 `PreTrainedTokenizerFast`를 명시하여 <br>라이브러리 범용 로직에 의한 사전(Vocabulary) 임의 변형 차단 |
 | **도메인 적응<br>(Domain Adaptation)** | 뉴스/위키백과 위주의 기존 가중치를 영화 리뷰 특유의 감성과 인터넷 구어체 텍스트로 재배치 |
