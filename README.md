@@ -19,19 +19,18 @@
 | **성능 극대화** | 범용 지식만 가진 GPT-2 모델의 어색한 직역체를 극복하고, 영화 리뷰 분야에서 자연스러운 구어체 생성을 구사하도록 모델 최적화 |
 | **도메인 특화 파인튜닝** | KoGPT2 모델에 NSMC(네이버 영화 리뷰) 데이터를 주입하여 구어체 중심의 문맥을 생성하도록 Causal LM 재학습 |
 | **Tokenizer 무결성 확보** | 한국어 자연어 처리 모델에서 빈번히 발생하는 토큰 인덱스 불일치 및 한글 깨짐 문제를 디버깅하고 안정적인 인코딩 규격 확립 |
-| **디코딩 전략 최적화** | 생성 파라미터(Temperature, Top-p, Repetition Penalty) 튜닝을 통해 텍스트의 일관성 제어 및 반복 생성 억제 |
 
 ---
 
 ## 📂 프로젝트 구조 (Project Structure)
 ```text
 📂 kogpt2-korean-finetuning
-├── 📄 main_finetuning.py        # 모델 학습 및 토크나이저 최적화 스크립트 (핵심 로직)
-├── 📄 app.py                    # 학습된 모델 시연용 Gradio 웹 인터페이스
-├── 📄 requirements.txt          # 프로젝트 의존성 패키지 리스트
-├── 📄 README.md                 # 프로젝트 개요 및 결과 보고서
-├── 📄 training.log              # 학습 과정 및 지표 모니터링 로그
-└── 📁 kogpt2-korean-finetuned/  # 파인튜닝 가중치 (대용량 파일, GitHub 제외 및 Hugging Face 연동)
+├── 📄 .gitignore
+├── 📄 LICENSE
+├── 📄 README.md             # 프로젝트 기술 보고서 및 트러블슈팅 기록
+├── 📄 main_finetuning.py    # KoGPT2 파인튜닝 및 토크나이저 최적화 핵심 로직
+├── 📄 app.py                # Gradio 기반 인터랙티브 웹 데모 실행 스크립트
+└── 📄 requirements.txt      # 프로젝트 환경 재현을 위한 의존성 패키지 목록
 ```
 
 ---
