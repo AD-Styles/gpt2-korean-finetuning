@@ -1,5 +1,5 @@
-# 🚀 Beyond Base Models: Fine-Tuning KoGPT2 for Korean Movie Reviews
-### 범용 모델의 한계를 넘어: KoGPT2 파인튜닝과 토크나이저 무결성 확보 사례 연구
+# 🚀 From Base GPT-2 to Domain Expert: KoGPT2 Fine-Tuning Project
+### 영문 범용 모델(GPT-2)에서 한국어 도메인 전문가로: 영화 리뷰 데이터 파인튜닝 및 인코딩 트러블슈팅
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)
