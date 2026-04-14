@@ -33,7 +33,7 @@ venv.bak/
 # Data and Logs
 training.log
 nsmc_data/
-gpt2-korean-finetuned/
+kogpt2-korean-finetuned/
 
 # OS
 .DS_Store
