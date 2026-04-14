@@ -25,12 +25,12 @@
 ## 📂 프로젝트 구조 (Project Structure)
 ```text
 📂 kogpt2-korean-finetuning
-├── 📄 .gitignore            # 로그 및 모델 가중치 업로드 방지
-├── 📄 LICENSE               # MIT License (AD-Styles)
-├── 📄 README.md             # 프로젝트 기술 보고서 및 트러블슈팅
-├── 📄 app.py                # Gradio 기반 인터랙티브 웹 데모 스크립트
-├── 📄 main_finetuning.py    # KoGPT2 파인튜닝 핵심 로직
-└── 📄 requirements.txt      # 의존성 패키지 리스트 (gradio 포함)
+├── 📄 .gitignore              # 로그 및 모델 가중치 업로드 방지
+├── 📄 LICENSE                 # MIT License (AD-Styles)
+├── 📄 README.md               # 프로젝트 기술 보고서 및 트러블슈팅
+├── 📄 app.py                  # Gradio 기반 인터랙티브 웹 데모 스크립트
+├── 📄 main_finetuning.py      # KoGPT2 파인튜닝 핵심 로직
+└── 📄 requirements.txt        # 의존성 패키지 리스트 (gradio 포함)
 ```
 
 ---
