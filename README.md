@@ -48,7 +48,7 @@
 
 ## 🚀 결정적 트러블슈팅: 토크나이저 안정화 (Fixing Tokenizer Errors)
 
-| 구분 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 상세 내용 |
+| 구분 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 상세 내용 |
 | :--- | :--- |
 | **문제 현상** | 한글 인코딩 붕괴 및 CUDA Error<br>파인튜닝 중 CUDA 메모리 참조 에러 발생 및 간헐적으로 출력이 외계어로 깨지는 현상 확인 |
 | **원인 분석** | `AutoTokenizer`가 모델 초기화 시, 기본 어휘 사전(51,200)을 넘어 패딩용 새 토큰을 암시적으로 추가해 임베딩  <br>크기를 51,201로 변형시킴, 전체 인덱스 맵핑이 1칸씩 밀리며 올바른 벡터가 출력되어도 잘못된 글자로 강제 디코딩됨 |
