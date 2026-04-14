@@ -39,10 +39,10 @@
 
 | 분류 | 구현 내용 |
 | :--- | :--- |
-| **데이터 및 토큰화<br>(Data & Tokenization)** | `datasets` 활용 병렬 처리. `AutoTokenizer` 대신 `PreTrainedTokenizerFast`를 명시하여 라이브러리 범용 로직에 의한 사전(Vocabulary) 임의 변형 차단. |
-| **도메인 적응<br>(Domain Adaptation)** | 뉴스/위키백과 위주의 기존 가중치를 영화 리뷰 특유의 감성과 인터넷 구어체 텍스트로 재배치. |
-| **학습 효율성<br>(Training Efficiency)** | 데이터 샘플링(Train 3만, Eval 3천), `gradient_accumulation_steps=2`, `fp16=True` 적용으로 로컬 GPU 학습 효율 극대화. |
-| **디코딩 전략<br>(Decoding Strategy)** | Repetition Penalty(1.2), Top-P(0.92), Temperature(0.8) 조합으로 텍스트 반복 제어 및 감성적 표현력 확보. |
+| **데이터 및 토큰화<br>(Data & Tokenization)** | `datasets` 활용 병렬 처리. `AutoTokenizer` 대신 `PreTrainedTokenizerFast`를 명시하여 라이브러리 범용 로직에 의한 사전(Vocabulary) 임의 변형 차단 |
+| **도메인 적응<br>(Domain Adaptation)** | 뉴스/위키백과 위주의 기존 가중치를 영화 리뷰 특유의 감성과 인터넷 구어체 텍스트로 재배치 |
+| **학습 효율성<br>(Training Efficiency)** | 데이터 샘플링(Train 3만, Eval 3천), `gradient_accumulation_steps=2`, `fp16=True` 적용으로 로컬 GPU 학습 효율 극대화 |
+| **디코딩 전략<br>(Decoding Strategy)** | Repetition Penalty(1.2), Top-P(0.92), Temperature(0.8) 조합으로 텍스트 반복 제어 및 감성적 표현력 확보 |
 
 ---
 
