@@ -14,7 +14,7 @@
 ---
 
 ## 🎯 핵심 목표 (Motivation)
-| 구분 nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 세부 내용 |
+| 구분 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 세부 내용 &nbsp;&nbsp; |
 | :--- | :--- |
 | **성능 극대화** | 범용 지식만 가진 GPT-2 모델의 어색한 직역체를 극복하고, 영화 리뷰 분야에서 자연스러운 구어체 생성을 구사하도록 모델 최적화 |
 | **도메인 특화 <br>파인튜닝** | KoGPT2 모델에 NSMC(네이버 영화 리뷰) 데이터를 주입하여 구어체 중심의 문맥을 생성하도록 Causal LM 재학습 |
