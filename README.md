@@ -61,7 +61,7 @@
 
 ---
 
-## 🤖 파인튜닝 결과물 대조 (Base vs Domain Expert)
+## 🤖 파인튜닝 모델 추론 결과 (Inference Results)
 
 | 프롬프트 (Prompt) | 생성된 텍스트 (Generated Review) | 결과 분석 |
 | :--- | :--- | :--- |
