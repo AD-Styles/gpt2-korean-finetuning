@@ -41,34 +41,51 @@
 ## 🛠️ 주요 알고리즘 및 기술적 구현 (Technical Implementation)
 
 ### 1. Tokenization & Data Preprocessing
-*   **정밀한 토크나이징 제어**: 일반적인 `AutoTokenizer` 대신 `PreTrainedTokenizerFast`를 명시하여 기본 토크나이저 설정이 라이브러리의 범용 로직에 의해 변형되는 것을 차단했습니다.
-*   **Data Pipelining**: `datasets` 라이브러리를 활용하여 원본 NSMC 데이터를 필터링하고 병렬로 tokenize 처리, `labels = input_ids` 복제를 통해 Causal LM 학습 포맷 구성.
+* **정밀한 토크나이징 제어**: 일반적인 `AutoTokenizer` 대신 `PreTrainedTokenizerFast`를 명시하여 기본 토크나이저 설정이 라이브러리의 범용 로직에 의해 변형되는 것을 차단했습니다.
+* **Data Pipelining**: `datasets` 라이브러리를 활용하여 원본 NSMC 데이터를 필터링하고 병렬로 Tokenize 처리하여 Causal LM 학습 포맷을 구성했습니다.
 
 ### 2. Causal LM Fine-tuning Architecture
-*   **자원 효율적 학습 설정**: 15만 건의 원본 데이터를 3만 건(Train), 3천 건(Eval)으로 샘플링하고 `gradient_accumulation_steps=2`, Mixed Precision(`fp16=True`)을 적용하여 로컬 GPU 환경에서 속도 대비 최적의 품질을 유지.
-*   **가중치 편향 구조 개편 (Weight Optimization)**: 기존 위키백과/뉴스 기사 위주로 편향되어 있던 원본 Base 모델의 가중치를 영화 리뷰 특유의 감성, 속어, 인터넷 구어체 텍스트로 강하게 재배치하여 뚜렷한 질적 수준의 성능 차별화 달성.
-*   **Trainer API Integration**: Hugging Face `Trainer`와 `DataCollatorForLanguageModeling`을 활용한 모듈화된 자동 학습 파이프라인.
+* **자원 효율적 학습 설정**: 원본 데이터를 3만 건(Train), 3천 건(Eval)으로 샘플링하고 `gradient_accumulation_steps=2`, Mixed Precision(`fp16=True`)을 적용하여 GPU 환경에서 학습 효율을 극대화했습니다.
+* **도메인 적응 (Domain Adaptation)**: 뉴스/위키백과 위주의 기존 가중치를 영화 리뷰 특유의 감성과 인터넷 구어체 텍스트로 재배치하여 질적 성능을 차별화했습니다.
 
-### 3. Generation Decoding Strategy Analysis
-*   **Repetition Penalty (1.2)**: 텍스트 생성 모델의 고질적인 단어/구절 무한 반복 문제를 제어하기 위해 확률 페널티 부여.
-*   **Top-P (Nucleus Sampling 0.9)**: 확률 분포 하위 10%의 연관성 없는 단어를 잘라내어 문맥이 파괴되는 것을 예방.
-*   **Temperature (0.8)**: 안전함과 창의성 간의 밸런스가 맞는 값을 채택하여 영화 리뷰 특유의 감성적 표현력 확보.
+### 3. Generation Decoding Strategy
+* **Repetition Penalty (1.2)**: 텍스트 생성 모델의 고질적인 구절 반복 문제를 제어.
+* **Top-P (0.92)**: 확률 분포 하위 단어를 잘라내어 문맥 붕괴 예방.
+* **Temperature (0.8)**: 안전성과 창의성 간의 밸런스를 채택하여 감성적 표현력 확보.
 
 ---
 
-## 🚀 결정적 트러블슈팅 사례 (Crucial Troubleshooting)
+## 🚀 트러블슈팅: 토크나이저 무결성 확보 (Troubleshooting)
 
-이 프로젝트에서 겪은 가장 고무적인 문제 해결 사례입니다:
+**[문제 현상] 한글 인코딩 깨짐 및 `CUDA device-side assert triggered` 에러**
+KoGPT2 모델 파인튜닝 중 지속적인 CUDA 메모리 참조 에러가 발생하였으며, 간헐적으로 출력이 외계어로 붕괴되는 현상을 겪었습니다.
 
-**[문제 현상] 한글 인코딩 파괴 및 `CUDA device-side assert triggered` 에러**
-KoGPT2 모델 파인튜닝 중 지속적인 CUDA 메모리 참조 에러가 발생하였으며, 간헐적으로 출력이 외계어(깨진 한글)로 붕괴되는 현상을 발견했습니다.
- 
-**[원인 분석 (Root Cause)] "단 1개의 토큰이 부른 참사"**
-허깅페이스의 범용 클래스인 `AutoTokenizer`가 KoGPT2를 초기화하는 과정에서 기본 어휘 사전 크기인 `51,200`을 넘어 패딩 처리를 위해 새로운 토큰을 암시적으로 추가, 임베딩 크기를 `51,201`로 변형시켰습니다.
-모델 학습 시 이 1개의 오프로드(Off-load)가 전체 인덱스 맵핑을 1칸씩 밀리게 만들었고, 모델은 정상적인 한국어 벡터를 내보냈으나 토크나이저가 이를 잘못된 글자로 강제 디코드하여 한글이 붕괴되는 원인이 되었습니다.
- 
-**[해결 방안 (The True Fix)]**
-파생 토큰을 방지하기 위해 `PreTrainedTokenizerFast`를 구체적으로 명시 선언하고, `bos_token`, `eos_token`, `pad_token` 등을 본래 KoGPT2 체계에 맞게 하드코딩 방식으로 고정했습니다. 강제로 수행되던 불필요한 `model.resize_token_embeddings()`를 해제시켜 원래 모델 구조(Vocab 크기 51,200)에 100% 종속되도록 코드를 재구성한 후, 무결점의 한국어 출력을 확보했습니다.
+**[원인 분석]**
+범용 클래스인 `AutoTokenizer`가 KoGPT2를 초기화할 때, 기본 어휘 사전 크기(`51,200`)를 넘어 패딩을 위한 새로운 토큰을 암시적으로 추가하여 임베딩 크기를 `51,201`로 변형시켰습니다. 이로 인해 모델 학습 시 전체 인덱스 맵핑이 1칸씩 밀리면서, 올바른 벡터가 출력되어도 잘못된 글자로 강제 디코드되는 현상이 발생했습니다.
+
+**[해결 방안]**
+파생 토큰 생성을 방지하기 위해 `PreTrainedTokenizerFast`를 명시적으로 선언하고, `bos_token`, `eos_token`, `pad_token`을 본래 KoGPT2 체계에 맞게 하드코딩했습니다. 불필요한 `model.resize_token_embeddings()` 과정을 해제하여 원래 모델의 구조(Vocab Size 51,200)에 완벽히 종속되도록 코드를 수정함으로써 무결점의 한국어 출력을 확보했습니다.
+
+---
+
+## 🔥 라이브 데모 (Live Demo)
+> 토크나이저가 최적화된 파인튜닝 모델을 웹에서 직접 테스트해 볼 수 있습니다.
+
+---
+
+## 🤖 파인튜닝 결과물 대조 (Inference Comparison)
+
+목적 지향적 학습을 거친 **KoGPT2-Finetuned 모델**과 일반 베이스 모델의 차이입니다.
+
+* **Prompt**: `"이 영화의 결말은"`
+* **After (Fine-tuned KoGPT2)**: *"이 영화의 결말은 정말 최고였다... 정말 최고의 작품이었다!!!ㅎㅎㅎ 강추!! ^_^; 너무 기대하고 본 영화였습니다! 강추~♥♡♡♡!!♥♡!♥.^ 아놔여 ♡♡ 강추! 강츄♥♡아저씨강츄예요 ㅠ 아놔요 ㅜ ㅜ♡♡ 강추하셔서 감사합니다이~♡♡♥♡ 강츄~ 강츄, 강츄강츄에 모두들 좋아합니다 강츄!!"*
+
+**💡 결과 해석**: 리뷰 데이터 특유의 인터넷 속어, 이모티콘, 전형적인 구어체 문맥이 모델에 성공적으로 흡수되었으며, 인덱스 밀림에 의한 인코딩 에러가 완벽하게 통제된 것을 확인할 수 있습니다.
+
+---
+
+## 💡 회고 (Retrospective)
+단순히 API를 호출하는 것을 넘어, 언어 모델의 근간이 되는 토크나이저의 내부 행렬 크기(Vocabulary Size) 통제와 인덱싱 과정을 깊이 있게 이해할 수 있는 실습이었습니다. 트러블슈팅 과정을 통해 데이터의 '바이트와 인덱스 로직'을 제어하는 방법을 습득했으며, 양질의 도메인 특화 데이터가 텍스트 생성 품질에 미치는 긍정적인 영향을 시각적으로 명확히 확인할 수 있었습니다.
 
 ---
 
