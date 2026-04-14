@@ -57,7 +57,7 @@
 ---
 
 ## 🔥 라이브 데모 (Live Demo)
-[![Test in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/deploy-to-spaces-lg-dark.svg)](https://huggingface.co/spaces/AD-Styles/kogpt2-korean-finetuning)
+👉 https://huggingface.co/spaces/AD-Styles/kogpt2-korean-finetuning)
 > **최적화된 파인튜닝 모델을 웹에서 직접 테스트해 볼 수 있습니다.**
 
 ---
