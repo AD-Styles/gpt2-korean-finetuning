@@ -69,7 +69,7 @@
 ---
 
 ## 🔥 라이브 데모 (Live Demo)
-## 👉 **[Hugging Face에서 최적화된 파인튜닝 모델 직접 테스트!!!](https://huggingface.co/spaces/AD-Styles/kogpt2-korean-finetuning)**
+## 👉👉👉 **[Hugging Face에서 최적화된 파인튜닝 모델 직접 테스트!!!](https://huggingface.co/spaces/AD-Styles/kogpt2-korean-finetuning)**
 
 ---
 ---
